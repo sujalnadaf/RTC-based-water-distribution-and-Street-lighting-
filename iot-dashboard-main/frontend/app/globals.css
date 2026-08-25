@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: Arial, Helvetica, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base text-slate-100 transition-colors duration-300;
+  font-family: var(--font-body);
+}
+
+body.light {
+  @apply bg-base-light text-slate-800;
+}
+
+/* Instrument-panel glass card */
+.panel-card {
+  @apply relative rounded-2xl border border-panel-border bg-panel/70 backdrop-blur-md shadow-glass;
+}
+
+body.light .panel-card {
+  @apply border-panel-borderLight bg-white/70 shadow-none;
+}
+
+/* Small-caps gauge-style label */
+.gauge-label {
+  @apply text-[11px] tracking-[0.18em] uppercase text-signal-steel font-medium;
+}
+
+/* Dashboard shell */
+.dashboard-surface {
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(31, 209, 193, 0.05),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59, 130, 246, 0.05),
+      transparent 30%
+    );
+}
+
+body.light .body-light-sidebar {
+  background: rgba(248, 250, 252, 0.97);
+}
+
+body.light .body-light-sidebar p,
+body.light .body-light-sidebar a {
+  color: #334155;
+}
+
+body.light header {
+  background-color: rgba(248, 250, 252, 0.88);
+}
+
+body.light header h1,
+body.light header p {
+  color: #1e293b;
+}
+
+/* Optional utility font classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid #1fd1c1;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Thin scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232b3d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
